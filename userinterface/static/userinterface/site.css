@@ -1,0 +1,115 @@
+
+/*navigation bar styling */
+.navbar {
+    background-color: lightslategray;
+    font-size: 1em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    padding: 8px 5px 8px 5px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar-brand {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.navbar-item {
+    font-variant: small-caps;
+    margin-left: 30px;
+}
+
+/* styling of the cards */
+.body-content {
+    padding: 5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7);
+    transition: 0.3s;
+    width: 200px;
+    height: 310px;
+  }
+  
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+  
+.container {
+
+    padding: 2px 16px;
+    width: 200px;
+}
+
+
+/*  styling of the recipe */
+#myTable > tr> th, #myTable > tr>td{
+    border-right: black 1px solid;
+
+}
+
+
+#invoice{
+    box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+    padding:2mm;
+    margin: 0 auto;
+    width: 50%;
+    background: #FFF;
+
+
+}
+#invoice::selection{background: #f31544; color: #FFF;}
+#invoice::moz-selection {background: #f31544; color: #FFF;}
+
+#invoice > h2 {
+    font-size: 2em;
+
+}
+
+#invoice > p{
+    font-size: .7em;
+    color: #666;
+    line-height: 1.2em;
+  }
+
+#top, #mid,#bot{ /* Targets all id with 'col-' */
+    border-bottom: 1px solid #EEE;
+  }
+#top{min-height: 100px;}
+#mid{min-height: 80px;} 
+#bot{ min-height: 50px;}
+
+.info{
+    display: block;
+    
+    margin-left: 0;
+  }
+
+.title{
+    float: right;
+  }
+#invoice >.title p{text-align: right;} 
+
+#invoice > table{
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+.tabletitle{
+    
+    font-size: 1em;
+    background: #EEE;
+  }
+.service{border-bottom: 1px solid #EEE;}
+.item{width: 24mm;}
+.itemtext{font-size: 1em;}
+  
+#legalcopy{
+    margin-top: 5mm;
+  }
+  

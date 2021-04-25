@@ -1,0 +1,57 @@
+{% extends "userinterface/layout.html" %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+<h3>Hello, {{request.user}}</h3>
+
+<!-- contains all the three categories of food for the user-->
+
+
+<div style="display: flex;">
+
+  <!-- dispay card used to display the vegeterian food option -->
+  <div style="margin-left: 5%;">
+
+    <!-- image of the container-->
+    <a href=""   target="_self" style="text-decoration: none;color: black;"><div class="card">
+      <img src="https://c.ndtvimg.com/2020-05/9iuj3h1g_indian-food_625x300_19_May_20.jpg" alt="Vegetarian" style="width:200px;height: 200px;">
+      <div class="container">
+        <h4><b><a style="text-decoration: none;color: black;" href="{% url 'vegfood' %}">Vegetarian food</a></b></h4>          
+      </div>
+    </div>
+  </a>
+  
+  </div>
+
+  <!-- dispay card used to display the nonvegetarian food option -->
+  <div style="margin-left: 5%;">
+
+    <!-- image of the container--> 
+      <a href=""   target="_self" style="text-decoration: none;color: black;"><div class="card">
+          <img src="https://www.thestatesman.com/wp-content/uploads/2018/10/Dish.jpg" alt="Non-Vegetarian" style="width:200px;height: 200px;">
+          <div class="container">
+            <h4><b><a style="text-decoration: none;color: black;" href="{% url 'nonvegfood' %}" >Non-Vegetarian food</a></b></h4>          
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <!-- dispay card used to display the vegan food option -->
+  <div style="margin-left: 5%;">
+
+    <!-- image of the container-->
+    <a href=""   target="_self" style="text-decoration: none;color: black;"><div class="card">
+        <img src="https://d2z0k43lzfi12d.cloudfront.net/blog/vcdn322/wp-content/uploads/2015/12/thumbnail_1200x800-1-1024x683.jpg" alt="Vegan" style="width:200px;height: 200px;">
+        <div class="container">
+          <h4><b><a style="text-decoration: none;color: black;" href="{% url 'veganfood' %}" >Vegan food</a></b></h4>          
+        </div>
+        <div></div>
+      </div>
+    </a>
+  
+  </div>
+  </div>
+
+{% endblock %}

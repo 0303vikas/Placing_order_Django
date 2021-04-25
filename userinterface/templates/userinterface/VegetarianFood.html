@@ -1,0 +1,418 @@
+{% extends "userinterface/layout.html" %}
+{% block title %}
+Vegetarian Food
+{% endblock %}
+{% block content %}
+<h2>Vegetarian Food</h2>
+<!-- This div displays the All the vegetarian food and the food selection imput below them-->
+<div style="display: flex;">
+
+  
+  <!-- display first item of the food -->
+<div style="margin-left: 1%;margin-bottom: 100px;">
+ 
+  
+  <!-- card to display the image, name and price of the food -->
+    <div class="card" >
+      <a href=""   target="_self" style="text-decoration: none;color: black;">
+      <img src="https://i.ibb.co/jGgJxTx/vegetarian-fajitas.jpg" alt="Food image" style="width:200px;height: 200px;">
+      <div class="container">
+        <h4><b>Vegetarian Fajitas
+          </b></h4> 
+        <h4>Price: €3,20</h4>
+      </div>
+    </a>
+
+    <!-- quantity selection division-->
+      <!-- contains a form that is put into final order table below the page -->
+      <div>
+        <form >
+        <label>No of dishes</label>
+        <input  type='number' placeholder='0...' style="width:50px;" min='0' id='meter1' class='meter' onchange="calsum()" />
+        <input type='number' id="displayprice" style="width:50px;" step="0.01"placeholder="Cost" value="" readonly>
+        <input type='button' value="Add" onclick="check1()">
+        </form>
+
+      </div>    
+    </div>
+  
+    
+</div>
+
+<!-- display second item of the food -->
+<div style="margin-left: 1%;"> 
+
+  <!-- card to display the image, name and price of the food -->
+    <div class="card">
+      <a href=""   target="_self" style="text-decoration: none;color: black;" >
+        <img src="https://i.ibb.co/bdp2nn6/pickled-pineapple-grilled-cheese-sandwich.webp" alt="Food image" style="width:200px;height: 200px;">
+        <div class="container">
+          <h4><b>Pickled pineapple grilled
+            </b><b>cheese sandwich</b></h4>
+            <h4>Price: €5,60</h4>          
+        </div>
+        </a>
+
+        <!-- quantity selection division-->
+          <!-- contains a form that is putinto final order table below the page -->
+        <div>
+          <form >
+            <label>No of dishes</label>
+            <input  type='number' placeholder='0...' style="width:50px;" min='0' id='meter2' class='meter' onchange="calsum2()" />
+            <input type='number' id="displayprice2" style="width:50px;" step="0.01"placeholder="Cost" value="" readonly>
+            <input type='button' value="Add" onclick='check2()'>
+            </form>
+  
+        </div>   
+        
+        </div>
+      </div>
+
+      <!-- display third item of the food -->
+      <div style="margin-left: 1%;" >
+
+        <!-- card to display the image, name and price of the food -->
+        <div class="card">
+          <a href=""   target="_self"  style="text-decoration: none;color: black;">
+            <img src="https://i.ibb.co/hKS2vBN/mushroom-wellington.jpg" alt="Food image" style="width:200px;height: 200px;">
+            <div class="container">
+              <h4><b>Mushroom Wellington
+                 </b></h4> 
+                 <h4>Price: €2,90</h4>           
+            </div>
+          </a>
+
+          <!-- quantity selection division-->
+          <!-- contains a form that is putinto final order table below the page -->
+            <div>
+              <form >
+                <label>No of dishes</label>
+                <input  type='number' placeholder='0...' style="width:50px;" min='0' id='meter3' class='meter' onchange="calsum3()" />
+                <input type='number' id="displayprice3" style="width:50px;" step="0.01"placeholder="Cost" value="" readonly>
+                <input type='button' value="Add" onclick='check3()'>
+                </form>
+      
+            </div>   
+          </div>
+        
+      
+      </div>
+
+      <!-- display fourth item of the food -->
+      <div style="margin-left: 1%;">
+
+        <!-- card to display the image, name and price of the food -->
+        <div class="card">
+          <a href=""   target="_self"  style="text-decoration: none;color: black;">
+            <img src="https://i.ibb.co/qmnLRt1/broccoli-cakes.jpg" alt="Food image" style="width:200px;height: 200px;">
+            <div class="container">
+              <h4><b> Broccoli Cakes</b></h4> 
+              <h4>Price: €4,10</h4>           
+            </div>
+          </a>
+
+          <!-- quantity selection division-->
+          <!-- contains a form that is putinto final order table below the page -->
+          <div>
+            <form >
+              <label>No of dishes</label>
+              <input  type='number' placeholder='0...' style="width:50px;" min='0' id='meter4' class='meter' onchange="calsum4()" />
+              <input type='number' id="displayprice4" style="width:50px;" step="0.01"placeholder="Cost" value="" readonly>
+              <input type='button' value="Add" onclick='check4()'>
+              </form>
+          </div>   
+          </div>
+        
+        
+        </div>
+
+</div>
+<!-- Table with form that display all the vegeterian order of one time, and submit/orders them at the end -->
+<div id="alltables" style="margin-bottom: 10px;">
+
+   <!-- final order submittion form-->
+  <form id="myform"method="POST" action=".">
+    {% csrf_token %}
+  <table id="myTable" >
+    <tr>
+      <th style="border-right: black 1px solid;">
+        FoodName
+
+      </th>
+      <th style="border-right: black 1px solid;">
+        Items
+
+      </th>
+      <th>
+        Price
+
+      </th>
+    </tr>
+  </table>
+  <input type="Submit" value="Place order">
+</form>
+</div>
+
+
+
+<script> 
+ 
+ //For first dish 
+
+    // reades onchange on the input field. Calculates and displays the price of number of dishes
+    //selected by the user of first dish
+
+    function calsum(){
+ 
+    var x = document.getElementById('meter1').value;
+    document.getElementById('displayprice').value = (x*(3.2)).toFixed(2);
+    }
+
+ // displays the dish name, no ordered and total amount of first dish
+  function getsum(){    
+    var x = document.getElementById('meter1').value;
+    var y = document.getElementById('displayprice').value     
+    document.getElementById('tab1row1input0').value = "Vegetarian Fajitas";
+    document.getElementById('tab1row1input1').value = x;
+    document.getElementById('tab1row1input2').value = y;    
+
+  }
+
+  // checks if one entry of first type is made in final order table, 
+  // if not then makes one.
+  //else make changes in the already make according to users actions
+  function check1(){
+    if (document.getElementById('tab1row1col0') == null){
+      table1();
+      
+    }
+    else{
+      getsum();
+    }
+  }
+
+  // function to add a row of first dish in the final table 
+  // adds rows columns and input field in the final table for first dish
+  
+   
+  function table1(){  
+
+    var tabrow = document.createElement("TR");
+    tabrow.setAttribute('id', 'tab1row1');    
+    document.getElementById('myTable').appendChild(tabrow);
+
+    for(i=0;i<3;i++){
+      var col = document.createElement("TD");
+      col.setAttribute('style', 'border-right: black 1px solid')
+      col.setAttribute("id", "tab1row1col"+i);
+      document.getElementById('tab1row1').appendChild(col)
+      var inputform = document.createElement('INPUT')      
+      inputform.setAttribute("readonly", true)
+      inputform.setAttribute("name", "input1."+i)
+      inputform.setAttribute("id", "tab1row1input"+i);
+      document.getElementById("tab1row1col"+i).appendChild(inputform)     
+
+    
+
+    }
+    getsum();
+
+  }
+
+ //For second dish 
+
+    // reades onchange on the input field. Calculates and displays the price of number of dishes
+    //selected by the user of second dish
+
+    function calsum2(){
+ var x = document.getElementById('meter2').value;
+ document.getElementById('displayprice2').value = (x*(5.6)).toFixed(2);
+}
+
+ // displays the dish name, no ordered and total amount of second dish
+  function getsum2(){    
+    var x = document.getElementById('meter2').value;
+    var y = document.getElementById('displayprice2').value     
+    document.getElementById('tab1row2input0').value = "Pickled Pineapple grilled cheese sandwich";
+    document.getElementById('tab1row2input1').value = x;
+    document.getElementById('tab1row2input2').value = y;    
+
+  }
+  
+   // checks if one entry of second type is made in final order table, 
+  // if not then makes one.
+  //else make changes in the already make according to users actions
+  function check2(){
+    if (document.getElementById('tab1row2col0') == null){
+      table2();
+      
+    }
+    else{
+      getsum2()
+    }
+  }
+
+   // function to add a row of second dish in the final table 
+  // adds rows columns and input field in the final table for second dish
+  
+  
+  function table2(){  
+
+    var tabrow = document.createElement("TR");
+    tabrow.setAttribute('id', 'tab1row2');
+    document.getElementById('myTable').appendChild(tabrow);
+
+    for(i=0;i<3;i++){
+      var col = document.createElement("TD");
+      col.setAttribute('style', 'border-right: black 1px solid')
+      col.setAttribute("id", "tab1row2col"+i);
+      document.getElementById('tab1row2').appendChild(col)
+      var inputform = document.createElement('INPUT')      
+      inputform.setAttribute("readonly", true)
+      inputform.setAttribute("name", "input2."+i)
+      inputform.setAttribute("id", "tab1row2input"+i);
+      document.getElementById("tab1row2col"+i).appendChild(inputform)  
+
+    
+
+    }
+    getsum2();
+
+
+  }
+
+ 
+ //For third dish 
+
+    // reades onchange on the input field. Calculates and displays the price of number of dishes
+    //selected by the user of third dish
+
+    function calsum3(){
+ var x = document.getElementById('meter3').value;
+ document.getElementById('displayprice3').value = (x*(2.9)).toFixed(2);
+}
+
+ 
+  
+  // displays the dish name, no ordered and total amount of fourth dish
+
+  function getsum3(){    
+    var x = document.getElementById('meter3').value;
+    var y = document.getElementById('displayprice3').value     
+    document.getElementById('tab1row3input0').value = "Mushroom Wellington";
+    document.getElementById('tab1row3input1').value = x;
+    document.getElementById('tab1row3input2').value = y;    
+
+  } 
+
+   // checks if one entry of third type is made in final order table, 
+  // if not then makes one.
+  //else make changes in the already make according to users actions
+  
+  function check3(){
+    if (document.getElementById('tab1row3col0') == null){
+      table3();
+      
+    }
+    else{
+      getsum3()
+    }
+  }
+
+  
+  // function to add a row of third dish in the final table 
+  // adds rows columns and input field in the final table for third dish
+  function table3(){  
+
+    var tabrow = document.createElement("TR");
+    tabrow.setAttribute('id', 'tab1row3');
+    document.getElementById('myTable').appendChild(tabrow);
+
+    for(i=0;i<3;i++){
+      var col = document.createElement("TD");
+      col.setAttribute('style', 'border-right: black 1px solid')
+      col.setAttribute("id", "tab1row3col"+i);
+      document.getElementById('tab1row3').appendChild(col)
+      var inputform = document.createElement('INPUT')      
+      inputform.setAttribute("readonly", true)
+      inputform.setAttribute("name", "input3."+i)
+      inputform.setAttribute("id", "tab1row3input"+i);
+      document.getElementById("tab1row3col"+i).appendChild(inputform)  
+
+    
+
+    }
+    getsum3();
+
+
+  }
+
+ //For fourth dish 
+
+    // reades onchange on the input field. Calculates and displays the price of number of dishes
+    //selected by the user of fourth dish
+
+    function calsum4(){
+ var x = document.getElementById('meter4').value;
+ document.getElementById('displayprice4').value = (x*(4.1)).toFixed(2);
+}
+
+ // displays the dish name, no ordered and total amount of fourth dish
+  function getsum4(){    
+    var x = document.getElementById('meter4').value;
+    var y = document.getElementById('displayprice4').value     
+    document.getElementById('tab1row4input0').value = "Broccoli Cakes";
+    document.getElementById('tab1row4input1').value = x;
+    document.getElementById('tab1row4input2').value = y;    
+
+  } 
+ 
+   // checks if one entry of fourth type is made in final order table, 
+  // if not then makes one.
+  //else make changes in the already make according to users actions
+  
+ 
+  function check4(){
+    if (document.getElementById('tab1row4col0') == null){
+      table4();
+      
+    }
+    else{
+      getsum4()
+    }
+  }
+
+   // function to add a row of fourth dish in the final table 
+  // adds rows columns and input field in the final table for forth dish
+  
+  function table4(){      
+    
+    var tabrow = document.createElement("TR");
+    tabrow.setAttribute('id', 'tab1row4');
+    document.getElementById('myTable').appendChild(tabrow);
+
+    for(i=0;i<3;i++){
+
+      var col = document.createElement("TD");
+      col.setAttribute('style', 'border-right: black 1px solid')
+      col.setAttribute("id", "tab1row4col"+i);
+      document.getElementById('tab1row4').appendChild(col)
+      var inputform = document.createElement('INPUT')      
+      inputform.setAttribute("readonly", true)
+      inputform.setAttribute("name", "input4."+i)
+      inputform.setAttribute("id", "tab1row4input"+i);
+      document.getElementById("tab1row4col"+i).appendChild(inputform) 
+    } 
+    
+    getsum4()
+
+
+  }
+
+  
+
+</script>
+
+
+    
+{% endblock %}

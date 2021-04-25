@@ -1,0 +1,107 @@
+{% extends "userinterface/layout.html" %}
+{% block title %}
+Your Order
+{% endblock %}
+{% block content %}
+
+<!--Main div starts for the displaying the final recipe -->
+<div id="invoice">
+    
+	<!-- main heading contains shop name-->
+    <div id="top">
+      
+      <div class="info"> 
+        <h2 class="headh2">#SHOP NAME</h2>
+      </div>
+    </div>
+    
+	<!-- Address of the shop -->
+    <div id="mid">
+      <div class="info">
+        <h2>Contact Info</h2>
+        <p> 
+            Address : street city, state 0000</br>
+            Email   : Foodstore@gmail.com</br>
+            Phone   : 0455784634</br>
+        </p>
+      </div>
+    </div>
+
+
+    <!--Table that is used to display the data of the orders-->
+    <div id="bot">
+
+					<div id="table">
+						<table>
+							<tr class="tabletitle">
+								<td class="item"><h2>Dish Name</h2></td>
+								<td class="Hours"><h2>Dish ordered</h2></td>
+								<td class="Rate"><h2>Price of dish</h2></td>
+								<td class="Time"><h2>Time Ordered</h2></td>
+							</tr>
+
+							<!--loop that will read through all the Vegetarian orders from the data base using loop,-->
+							<!--Then it prints the data in new table row and table column -->
+							{%for item in list%}
+							<tr class="service">
+								{% for h,j in item.items %}								
+									<td class="tableitem"><p class="itemtext">{{ j }}</p></td>
+								{% endfor %}
+									
+							</tr>
+							
+							{% endfor %}
+
+							<!--loop that will read through all the Non vegetarian  orders from the data base using loop,-->
+							<!--Then it prints the data in new table row and table column -->
+							{%for item in list1%}
+							<tr class="service">
+								{% for h,j in item.items %}								
+									<td class="tableitem"><p class="itemtext">{{ j }}</p></td>
+								{% endfor %}
+									
+							</tr>
+
+							{% endfor %}
+
+							<!--loop that will read through all the Vegan  orders from the data base using loop,-->
+							<!--Then it prints the data in new table row and table column -->
+							{%for item in list2%}
+							<tr class="service">
+								{% for h,j in item.items %}								
+									<td class="tableitem"><p class="itemtext">{{ j }}</p></td>
+								{% endfor %}
+									
+							</tr>
+
+							{% endfor %}
+							
+							<!-- table just to display a line for befor the total and the sum -->
+                            <tr>
+                                <td><hr></td>
+                                <td><hr></td>
+                                <td><hr></td>
+                            </tr>
+
+							<!-- Contains the total sum of all the orders  -->
+							<tr class="tabletitle">
+								
+								<td></td>
+								<td class="Rate" style="font-size: 0.6em;"><h2>Total Amount</h2></td>
+								<td class="payment" style="font-size: 0.6em;"><h2>€{{sum}}</h2></td>
+							</tr>
+							
+
+						</table>
+					</div>
+
+					<!-- thank you dive-->
+					<div id="legalcopy">
+						<p class="legal"><strong>Thank you for Choosing us!</strong>  
+						</p>
+					</div>
+
+				</div>
+  </div>
+
+{% endblock %}
