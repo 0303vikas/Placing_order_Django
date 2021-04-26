@@ -12,6 +12,6 @@ urlpatterns = [
     path("user/VegFood/", login_required(views.VegetarianFood.as_view()), name="vegfood"),
     path("user/NonVegFood/", login_required(views.NonVegFood.as_view()), name="nonvegfood"),
     path("user/VeganFood/", login_required(views.VeganFood.as_view()), name="veganfood"),
-    path("user/Order/", login_required(views.Recipe.as_view()),name='finallist'),
+    path("user/Order/", login_required(views.Receipt.as_view()),name='finallist'),
 
 ]

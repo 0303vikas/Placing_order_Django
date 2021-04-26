@@ -672,7 +672,7 @@ class VeganFood(Home):
 
     
  # class to display final recipe
-class Recipe(ListView):
+class Receipt(ListView):
 
     # address of the final list template
     template_name="userinterface/FinalList.html"   
@@ -689,7 +689,7 @@ class Recipe(ListView):
 
         # for OOP programming
         # creating the instance of the class recipe
-        random = Recipe()
+        random = Receipt()
 
         # setting username and id in the instance of the class
         random.set_username(request.user.username)
