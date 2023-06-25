@@ -32,24 +32,24 @@ In order to test the purchase flows, fill in the account details in
 Follow the 'Food ordering Web Application (1).pdf' 
 
 ###Routes
->login/ [name='login']
->register/ [name='register']
->logout/ [name='logout']
->user/foodtype/ [name='home']
->user/VegFood/ [name='vegfood']
->user/NonVegFood/ [name='nonvegfood']
->user/VeganFood/ [name='veganfood']
->user/Order/ [name='finallist']
->admin/
->login/ [name='login']
->logout/ [name='logout']
->password_change/ [name='password_change']
->password_change/done/ [name='password_change_done']
->password_reset/ [name='password_reset']
->password_reset/done/ [name='password_reset_done']
->reset/<uidb64>/<token>/ [name='password_reset_confirm']
->reset/done/ [name='password_reset_complete']
->^static/(?P<path>.*)$
+>login/ [name='login'] <br />
+>register/ [name='register'] <br />
+>logout/ [name='logout'] <br />
+>user/foodtype/ [name='home'] <br />
+>user/VegFood/ [name='vegfood'] <br />
+>user/NonVegFood/ [name='nonvegfood'] <br />
+>user/VeganFood/ [name='veganfood'] <br />
+>user/Order/ [name='finallist'] <br />
+>admin/  <br />
+>login/ [name='login'] <br />
+>logout/ [name='logout'] <br />
+>password_change/ [name='password_change'] <br />
+>password_change/done/ [name='password_change_done'] <br />
+>password_reset/ [name='password_reset'] <br />
+>password_reset/done/ [name='password_reset_done'] <br />
+>reset/<uidb64>/<token>/ [name='password_reset_confirm'] <br />
+>reset/done/ [name='password_reset_complete'] <br />
+>^static/(?P<path>.*)$ <br />
 
 
 
